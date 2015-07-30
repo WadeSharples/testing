@@ -1,8 +1,8 @@
 app.post('/recover', function(req, res) {
-  var input_token = req.params.token;
+  var input_token = req.body.token;
 
   models.User.find({
-    where: { id: req.params.user }
+    where: { id: req.body.user }
   }).success(function(user) {
     var user_token = user.recovery_token;
 
